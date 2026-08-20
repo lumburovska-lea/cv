@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leonida Lumburovska — CV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0b0d10;
+    --surface: #12151a;
+    --surface-2: #171b21;
+    --border: #262b33;
+    --text: #eef0f2;
+    --text-dim: #a2a9b4;
+    --text-faint: #6b7280;
+    --accent: #7dd3b0;
+    --accent-strong: #4fb894;
+    --accent-glow: rgba(125, 211, 176, 0.15);
+    --max-width: 980px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  ::selection { background: var(--accent-glow); color: var(--accent); }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    background-image:
+      radial-gradient(ellipse 900px 500px at 15% -10%, rgba(125,211,176,0.10), transparent),
+      radial-gradient(ellipse 700px 500px at 100% 10%, rgba(79,184,148,0.08), transparent);
+    background-repeat: no-repeat;
+    color: var(--text);
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 { font-family: "Space Grotesk", "Inter", sans-serif; }
+
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { color: var(--accent-strong); }
+
+  .mono {
+    font-family: "JetBrains Mono", monospace;
+  }
+
+  /* --- Nav --- */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(11, 13, 16, 0.78);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  nav .nav-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .nav-brand {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.85rem;
+    color: var(--accent);
+    letter-spacing: 0.02em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  .nav-links a {
+    color: var(--text-dim);
+    position: relative;
+    padding-bottom: 4px;
+  }
+
+  .nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 100%;
+    bottom: 0;
+    height: 1.5px;
+    background: var(--accent);
+    transition: right 0.25s ease;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: var(--text);
+  }
+
+  .nav-links a.active::after,
+  .nav-links a:hover::after {
+    right: 0;
+  }
+
+  /* --- Hero --- */
+  header.hero {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 88px 32px 64px;
+    display: flex;
+    gap: 44px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  header.hero .photo-wrap {
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  header.hero .photo-wrap::before {
+    content: "";
+    position: absolute;
+    inset: -8px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), transparent 70%);
+    opacity: 0.5;
+    filter: blur(6px);
+  }
+
+  header.hero img {
+    position: relative;
+    width: 148px;
+    height: 148px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--bg);
+    display: block;
+  }
+
+  header.hero .intro { flex: 1; min-width: 280px; }
+
+  .eyebrow {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.8rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 14px;
+  }
+
+  header.hero h1 {
+    font-size: 2.75rem;
+    margin: 0 0 14px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  .contact {
+    font-size: 0.9rem;
+    color: var(--text-dim);
+    margin-bottom: 20px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .contact span, .contact a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .contact a { color: var(--text-dim); }
+  .contact a:hover { color: var(--accent); }
+
+  .summary {
+    color: var(--text-dim);
+    font-size: 1.05rem;
+    max-width: 62ch;
+  }
+
+  main {
+    display: block;
+  }
+
+  section {
+    scroll-margin-top: 66px;
+    padding: 72px 32px;
+    position: relative;
+    border-top: 1px solid var(--border);
+  }
+
+  section > * {
+    max-width: var(--max-width);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* alternating band treatment: odd sections stay flat, even sections get a raised surface + texture */
+  section:nth-of-type(odd) {
+    background: var(--bg);
+  }
+
+  section:nth-of-type(even) {
+    background: var(--surface);
+    background-image: radial-gradient(circle, var(--border) 1px, transparent 1px);
+    background-size: 22px 22px;
+    background-position: -11px -11px;
+  }
+
+  section:nth-of-type(even)::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, var(--surface) 0%, transparent 14%, transparent 86%, var(--surface) 100%);
+    pointer-events: none;
+  }
+
+  /* top progress rail: only this section's own 20% segment is filled, rest is track */
+  section::after {
+    content: "";
+    position: absolute;
+    top: -1px; left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right,
+      var(--border) 0%, var(--border) var(--start, 0%),
+      var(--accent) var(--start, 0%), var(--accent) var(--end, 20%),
+      var(--border) var(--end, 20%), var(--border) 100%);
+  }
+
+  section:nth-of-type(1) { --start: 0%;  --end: 20%; }
+  section:nth-of-type(2) { --start: 20%; --end: 40%; }
+  section:nth-of-type(3) { --start: 40%; --end: 60%; }
+  section:nth-of-type(4) { --start: 60%; --end: 80%; }
+  section:nth-of-type(5) { --start: 80%; --end: 100%; }
+
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 36px;
+    position: relative;
+  }
+
+  .section-num {
+    font-family: "JetBrains Mono", monospace;
+    color: var(--accent);
+    font-size: 0.85rem;
+  }
+
+  section h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--border), transparent);
+  }
+
+  /* --- Timeline entries --- */
+  .timeline {
+    position: relative;
+    padding-left: 28px;
+    border-left: 1px solid var(--border);
+  }
+
+  .entry {
+    position: relative;
+    margin-bottom: 40px;
+    padding-bottom: 4px;
+  }
+
+  .entry:last-child { margin-bottom: 0; }
+
+  .entry::before {
+    content: "";
+    position: absolute;
+    left: -33.5px;
+    top: 6px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 2px solid var(--accent);
+  }
+
+  .entry-date {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.78rem;
+    color: var(--text-faint);
+    margin-bottom: 6px;
+    letter-spacing: 0.02em;
+  }
+
+  .entry-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+
+  .entry-org {
+    color: var(--accent);
+    font-size: 0.92rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  .entry ul {
+    margin: 0;
+    padding-left: 18px;
+    color: var(--text-dim);
+    font-size: 0.95rem;
+  }
+
+  .entry ul li { margin-bottom: 5px; }
+  .entry ul li::marker { color: var(--accent); }
+
+  .entry .thesis {
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    font-style: italic;
+    border-left: 2px solid var(--border);
+    padding-left: 12px;
+    margin-top: 8px;
+  }
+
+  /* --- Publications --- */
+  .pub-entry {
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    gap: 4px 20px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+  }
+
+  .pub-index {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.8rem;
+    color: var(--text-faint);
+    padding-top: 3px;
+  }
+
+  .pub-status {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+
+  .pub-status::before {
+    content: "● ";
+    font-size: 0.6rem;
+  }
+
+  .pub-title {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 8px;
+    color: var(--text);
+    max-width: 56ch;
+  }
+
+  .pub-venue {
+    font-size: 0.92rem;
+    color: var(--text-dim);
+    font-style: italic;
+    margin-bottom: 14px;
+  }
+
+  .pub-link {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 1px;
+  }
+
+  .pub-link:hover {
+    color: var(--accent-strong);
+    border-color: var(--accent-strong);
+  }
+
+  /* --- Skills --- */
+  .skills-list {
+    display: grid;
+    gap: 0;
+  }
+
+  .skill-row {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 20px;
+    padding: 16px 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .skill-row:last-child {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .skill-row h3 {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    margin: 0;
+    font-weight: 500;
+  }
+
+  .skill-row p {
+    margin: 0;
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+
+  /* --- Certifications --- */
+  .cert-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+  }
+
+  .cert-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    flex-wrap: wrap;
+    padding: 16px 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .cert-list li:last-child {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .cert-name { font-weight: 500; color: var(--text); font-size: 0.98rem; }
+  .cert-org {
+    color: var(--text-faint);
+    font-size: 0.82rem;
+    font-family: "JetBrains Mono", monospace;
+    text-align: right;
+  }
+
+  footer {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 40px 32px 60px;
+    border-top: 1px solid var(--border);
+    margin-top: 90px;
+    font-size: 0.82rem;
+    color: var(--text-faint);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  @media (max-width: 640px) {
+    header.hero { padding: 56px 20px 40px; flex-direction: column; text-align: center; }
+    .contact { justify-content: center; }
+    header.hero h1 { font-size: 2.1rem; }
+    section { padding: 52px 20px; }
+    .nav-inner { padding: 14px 20px; justify-content: center; }
+    .nav-brand { display: none; }
+    .timeline { padding-left: 22px; }
+    .entry::before { left: -27.5px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <span class="nav-brand">~/lumburovskaleonida/cv</span>
+    <div class="nav-links">
+      <a href="#education">Education</a>
+      <a href="#experience">Experience</a>
+      <a href="#publications">Publications</a>
+      <a href="#skills">Skills</a>
+      <a href="#certifications">Certifications</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="photo-wrap">
+    <img src="photo_Leonida.jpg" alt="Leonida Lumburovska">
+  </div>
+  <div class="intro">
+    <div class="eyebrow">PhD Researcher · Multimodal Explainable AI</div>
+    <h1>Leonida Lumburovska</h1>
+    <div class="contact">
+      <a href="mailto:lumb@zhaw.ch">lumb@zhaw.ch</a>
+      <a href="https://www.linkedin.com/in/leonida-lumburovska/" target="_blank" rel="noopener">in/leonida-lumburovska</a>
+      <span>Zurich, Switzerland</span>
+    </div>
+    <p class="summary">
+      PhD student researcher specializing in deep learning architectures for clinical diagnostics.
+      Research experience in medical imaging, explainable AI methodologies, and multimodal clinical
+      decision support systems.
+    </p>
+  </div>
+</header>
+
+<main>
+
+  <section id="education">
+    <div class="section-head">
+      <span class="section-num">01</span>
+      <h2>Education</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="timeline">
+      <div class="entry">
+        <div class="entry-date">NOV 2025 — PRESENT</div>
+        <div class="entry-title">PhD in Multimodal AI in Medical Diagnosis</div>
+        <div class="entry-org">University of Zurich × ZHAW CAI · Zurich, Switzerland</div>
+        <div class="thesis">Temporal Multimodal Explainable AI for Enhanced Diagnosis and Understanding of Multiple Chronic Diseases with Irregular Sampling</div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-date">SEP 2023 — JUL 2025</div>
+        <div class="entry-title">MSc in Artificial Intelligence</div>
+        <div class="entry-org">Universitat Pompeu Fabra · Barcelona, Spain</div>
+        <ul>
+          <li>Full Scholarship Recipient of Erasmus Mundus Scholarship (Program acceptance rate &lt;3%), Final GPA: 9.04</li>
+          <li>Master Thesis: "Attention-Enhanced 3D Convolutional Neural Network for Automated Lung Nodule Malignancy Assessment"</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-date">FEB 2024 — JUN 2024</div>
+        <div class="entry-title">MSc Mobility Semester in Artificial Intelligence and Robotics</div>
+        <div class="entry-org">Sapienza Università di Roma · Rome, Italy</div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-date">OCT 2019 — JAN 2023</div>
+        <div class="entry-title">BSc in Computer and Information Science</div>
+        <div class="entry-org">Univerza v Ljubljani · Ljubljana, Slovenia</div>
+        <div class="thesis">Bachelor thesis: "Explanations of medical prediction models using background knowledge"</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="section-head">
+      <span class="section-num">02</span>
+      <h2>Experience</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="timeline">
+      <div class="entry">
+        <div class="entry-date">NOV 2025 — PRESENT</div>
+        <div class="entry-title">Doctoral Researcher</div>
+        <div class="entry-org">ZHAW Center for Artificial Intelligence</div>
+        <ul>
+          <li>Conducting PhD research on multimodal explainable AI for chronic disease diagnosis and understanding, focusing on kidney disease, diabetes, selected cancers, and cardiovascular disease.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-date">FEB 2025 — JUL 2025</div>
+        <div class="entry-title">Medical AI Research Intern</div>
+        <div class="entry-org">Eurecat Technology Center, Barcelona</div>
+        <ul>
+          <li>Research on deep learning models for the detection, segmentation and classification of lung nodules in medical imaging, interpretability.</li>
+          <li>Engineered a customized 3D ResNet model with attention modules to improve malignancy classification with 88% AUC and perfect recall.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-date">SEP 2024 — DEC 2024</div>
+        <div class="entry-title">Computer Vision Intern in Medical Imaging</div>
+        <div class="entry-org">BCN-MedTech, Barcelona</div>
+        <ul>
+          <li>Research on medical image segmentation — liver and portal vein segmentation from computed tomography scans, data analysis on radiomics.</li>
+          <li>Evaluated MedSAM and TotalSegmentator segmentation models applied to patients with portal vein thrombosis and achieved a 96% DICE score.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-date">JUN 2022 — DEC 2022</div>
+        <div class="entry-title">Junior Software Developer</div>
+        <div class="entry-org">Endava, Ljubljana</div>
+        <ul>
+          <li>Developed and maintained web applications using React, focused on interactive user interfaces and responsive design.</li>
+          <li>Collaborated with senior developers to integrate RESTful APIs, enhancing data flow and user experience across web platforms.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-date">APR 2022 — JUN 2022</div>
+        <div class="entry-title">Data Processing Student</div>
+        <div class="entry-org">Elit'Avia, Ljubljana</div>
+        <ul>
+          <li>Collaborated on improving data presentation using HTML, CSS, JavaScript.</li>
+          <li>Analyzed and interpreted large datasets to boost data presentation clarity.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="publications">
+    <div class="section-head">
+      <span class="section-num">03</span>
+      <h2>Publications</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="pub-entry">
+      <div class="pub-index">01</div>
+      <div>
+        <div class="pub-status">Upcoming</div>
+        <div class="pub-title">Recovering Progression Beyond the Identity Shortcut: A Schrödinger Bridge Framework for Longitudinal Brain-MRI</div>
+        <div class="pub-venue">6th Deep Generative Models Workshop (DGM4MICCAI) @ MICCAI 2026 · Proceedings in Springer</div>
+        <a class="pub-link" href="https://openreview.net/forum?id=8yH7kePWHJ" target="_blank" rel="noopener">openreview.net/forum?id=8yH7kePWHJ →</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="section-head">
+      <span class="section-num">04</span>
+      <h2>Skills</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="skills-list">
+      <div class="skill-row">
+        <h3>Programming</h3>
+        <p>Python, R, MATLAB, Java, SQL, C, JavaScript, Prolog</p>
+      </div>
+      <div class="skill-row">
+        <h3>Artificial Intelligence</h3>
+        <p>Supervised &amp; unsupervised learning, deep learning, image preprocessing, CNNs, NLP, statistical analysis, big data, medical imaging, LLMs, data visualization</p>
+      </div>
+      <div class="skill-row">
+        <h3>Frameworks &amp; Libraries</h3>
+        <p>PyTorch, TensorFlow, scikit-learn, MONAI, NumPy, pandas, OpenCV, SimpleITK, NiBabel</p>
+      </div>
+      <div class="skill-row">
+        <h3>Soft Skills</h3>
+        <p>Critical Thinking, Time Management, Creativity, Problem Solving, Teamwork</p>
+      </div>
+      <div class="skill-row">
+        <h3>Languages</h3>
+        <p>Macedonian (native), English (C2), Slovenian (C1), Spanish (A2)</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <div class="section-head">
+      <span class="section-num">05</span>
+      <h2>Certifications &amp; Awards</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <ul class="cert-list">
+      <li>
+        <span class="cert-name">C2 Proficiency Cambridge English</span>
+        <span class="cert-org">Cambridge Assessment English</span>
+      </li>
+      <li>
+        <span class="cert-name">Summer School in AI</span>
+        <span class="cert-org">UCL Center of Artificial Intelligence · 2024</span>
+      </li>
+      <li>
+        <span class="cert-name">Co-founder &amp; former president</span>
+        <span class="cert-org">Business IT Club Ljubljana</span>
+      </li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  <span>Leonida Lumburovska</span>
+  <span>Zurich, Switzerland</span>
+</footer>
+
+<script>
+  const sections = document.querySelectorAll('main section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+        });
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+
+  sections.forEach(section => observer.observe(section));
+</script>
+
+</body>
+</html>
